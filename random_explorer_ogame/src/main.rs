@@ -28,8 +28,8 @@ fn randomize_explorer()
     let mut rng_galaxy = rand::thread_rng();
     let mut rng_star = rand::thread_rng();
 
-    let range_galaxy = Uniform::new(1,4);
-    let range_star = Uniform::new(1, 499);
+    let range_galaxy = Uniform::new(1,5);
+    let range_star = Uniform::new(1, 500);
 
     let galaxy = range_galaxy.sample(&mut rng_galaxy);
     let star = range_star.sample(&mut rng_star);
