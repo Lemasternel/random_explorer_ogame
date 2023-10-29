@@ -8,13 +8,13 @@ Creates coordinates to use in OGame galaxy explorer. The first number can be ran
 
 ### learn track
 
-. How to random numbers
-. String comparison using match
-. Differences between strings (String and &'static str)
-. Get user's input
-. How to use Cargo to import libraries and build
-. Create and call functions
-. Create variables and mut
-. Format strings
-. First contact with RustRover IDE and git client
-. First contact with Fork git client
+* How to random numbers
+* String comparison using match
+* Differences between strings (String and &'static str)
+* Format strings
+* Get user's input
+* How to use Cargo to import libraries and build
+* Create and call functions
+* Create variables and mut
+* First contact with RustRover IDE and git client
+* First contact with Fork git client
