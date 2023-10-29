@@ -6,7 +6,7 @@ use rand_distr::{Distribution, Uniform};
 
 fn main() {
     let mut input = String::new();
-    let _exit_key = String::from("1");
+    let _exit_key: &'static str = "1";
 
     println!("Randomizes the coordinates for galaxy explorer in OGame");
     loop {
