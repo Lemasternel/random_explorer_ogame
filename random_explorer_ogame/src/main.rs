@@ -5,8 +5,9 @@ use std::io::stdin;
 use rand_distr::{Distribution, Uniform};
 
 fn main() {
+    const EXIT_KEY: &str = "1";
+    
     let mut input = String::new();
-    let _exit_key: &'static str = "1";
 
     println!("Randomizes the coordinates for galaxy explorer in OGame");
     loop {
@@ -16,7 +17,7 @@ fn main() {
         stdin().read_line(&mut input)
             .expect("Fail to read lines!");
 
-        match input.trim() == _exit_key {
+        match input.trim() == EXIT_KEY {
             true => std::process::exit(0),
             false => continue
         }
@@ -25,6 +26,8 @@ fn main() {
 
 fn randomize_explorer()
 {
+    const PLANET: i32 = 16; //Represents the unexplored universe!
+
     let mut rng_galaxy = rand::thread_rng();
     let mut rng_star = rand::thread_rng();
 
@@ -33,8 +36,7 @@ fn randomize_explorer()
 
     let galaxy = range_galaxy.sample(&mut rng_galaxy);
     let star = range_star.sample(&mut rng_star);
-    let planet = 16; //Represents the unexplored universe!
 
-    let answer = format!("Coordinates {}:{}:{}", galaxy, star, planet);
+    let answer = format!("Coordinates {}:{}:{}", galaxy, star, PLANET);
     println!("{}", answer);
 }
