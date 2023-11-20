@@ -1,42 +1,35 @@
 extern crate rand;
 extern crate rand_distr;
 
-use std::io::stdin;
-use rand_distr::{Distribution, Uniform};
+use std::{io::stdin, i32};
+use rand::Rng;
 
 fn main() {
-    const EXIT_KEY: &str = "1";
+    let exit_key: &str = "1";
+    let planet: i32 = 16;
     
     let mut input = String::new();
 
     println!("Randomizes the coordinates for galaxy explorer in OGame");
     loop {
-        randomize_explorer();
+        randomize_explorer(planet);
         println!("Press any key to re-run or '1' to exit! ");
 
         stdin().read_line(&mut input)
             .expect("Fail to read lines!");
 
-        match input.trim() == EXIT_KEY {
+        match input.trim() == exit_key {
             true => std::process::exit(0),
             false => continue
         }
     }
 }
 
-fn randomize_explorer()
+fn randomize_explorer(planet: i32)
 {
-    const PLANET: i32 = 16; //Represents the unexplored universe!
+    let galaxy = rand::thread_rng().gen_range(1..=4);
+    let star = rand::thread_rng().gen_range(1..=499);
 
-    let mut rng_galaxy = rand::thread_rng();
-    let mut rng_star = rand::thread_rng();
-
-    let range_galaxy = Uniform::new(1,5);
-    let range_star = Uniform::new(1, 500);
-
-    let galaxy = range_galaxy.sample(&mut rng_galaxy);
-    let star = range_star.sample(&mut rng_star);
-
-    let answer = format!("Coordinates {}:{}:{}", galaxy, star, PLANET);
+    let answer = format!("Coordinates {}:{}:{}", galaxy, star, planet);
     println!("{}", answer);
 }
